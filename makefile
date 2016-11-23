@@ -12,3 +12,9 @@ visualize:
 deploy_ghpages: visualize
 	git subtree push --prefix gh-pages/ origin gh-pages
 
+## environment
+
+# tmuxinator an R dev environment
+create_env:
+	tmuxinator start r-sandbox
+
