@@ -2,11 +2,15 @@
 refresh:
 	Rscript refresh-data.R
 
-# visualize network of relationships between campaign efforts and
-# payees for expenses related to meetings and meals
-visualize:
-	Rscript campaign-meetings.R
-	mv denver_campaign_meeting_tree_graph.html gh-pages
+OUTPUT=denver_campaign_meeting_tree_graph.html
+# render visualization of network of relationships between
+# campaign efforts and payees for expenses related to meetings and meals
+render:
+	./campaign-meetings.R
+	mv $(OUTPUT) gh-pages
+
+display:
+	open gh-pages/$(OUTPUT)
 
 # deply to ghpages
 deploy_ghpages: visualize
